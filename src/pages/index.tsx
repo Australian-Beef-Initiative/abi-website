@@ -9,15 +9,16 @@ import '@fontsource/roboto/700.css';
 import { Box } from '@mui/system'
 import { createTheme } from '@mui/material';
 import {ThemeProvider} from '@mui/material';
+import { farmCreamFont, darkGraniteGrey } from '../colours';
 
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#00008b',
+      main: darkGraniteGrey,
     },
     secondary: {
-      main: '#f7931a',
+      main: farmCreamFont,
     },
   },
   typography: {
@@ -71,53 +72,6 @@ const theme = createTheme({
     },
   },
 });
-
-
-const docLinks = [
-  {
-    text: "TypeScript Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
-  },
-  {
-    text: "GraphQL Typegen Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
-  }
-]
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative" as "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-]
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
