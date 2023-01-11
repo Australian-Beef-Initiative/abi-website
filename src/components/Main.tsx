@@ -13,8 +13,8 @@ export const Main = ( props: any ) => {
       />
       <ContentContainer 
         imageAlt="Nguni Cows, looking at camera" 
-        cardHeading="Welcome to the Australian Beef Initiative" 
-        cardButtonLabel="View Events"
+        cardHeading="Placeholder Heading Text" 
+        cardButtonLabel="Check out the farms"
       />
     </Box>
   )
