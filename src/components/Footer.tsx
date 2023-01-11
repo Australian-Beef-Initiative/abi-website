@@ -7,33 +7,45 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 
 export const Footer = ( props: any ) => {
   return (
-    <Box style={{position: 'relative', bottom: 0}}>
+    <Box style={{position: 'relative', bottom: 0, paddingBottom: 4}}>
       <Grid container >
         <Grid xs={4}>
         <Stack direction="column" spacing={1} divider={<Divider orientation="vertical" flexItem />}>
-          <Link href="#" underline="none">
+          <Link href="#" underline="hover">
             {'Home'}
           </Link>
           <Link href="#" underline="hover">
             {'Events'}
           </Link>
-          <Link href="#" underline="always">
+          <Link href="#" underline="hover">
             {'Contact us'}
           </Link>
         </Stack>
         </Grid>
-        <Grid xs={4} alignItems="center">
-          <IconButton href="https://www.twitter.com/@BeefInAustralia" target="_blank">
-            <TwitterIcon/>
-          </IconButton>
-          <IconButton>
-            <FacebookIcon/>
-          </IconButton>
-        </Grid>
         <Grid xs={4}>
-          <Typography align="right" variant="h5">
-            Placeholder section
+          <Box
+            display="flex"
+            justifyContent="center"
+          >
+            <IconButton href="https://www.twitter.com/@BeefInAustralia" target="_blank">
+              <TwitterIcon/>
+            </IconButton>
+            <IconButton>
+              <FacebookIcon/>
+            </IconButton>
+          </Box>
+        </Grid>
+        <Grid xs={4}> 
+        <Box
+          display="flex"
+          flexDirection="column"
+          sx={{height: '100%'}}
+          justifyContent="end"
+        >
+          <Typography align="right" variant="body2">
+            &copy; Copyright 2023 Australian Beef Initiative Limited
           </Typography>
+          </Box>
         </Grid>
       </Grid>
     </Box>
