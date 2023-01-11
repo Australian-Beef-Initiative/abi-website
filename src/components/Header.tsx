@@ -2,6 +2,8 @@ import React from 'react'
 import {Box, Unstable_Grid2 as Grid, Button, ButtonGroup, Link, useMediaQuery, Menu, MenuItem, IconButton } from '@mui/material'
 import { StaticImage } from "gatsby-plugin-image"
 import MenuIcon from '@mui/icons-material/Menu';
+import ReactDOM from 'react-dom'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 
 
@@ -71,7 +73,7 @@ export const Header = ( props: any ) => {
               <div style={{height: '100%', display: 'flex', flexDirection: 'column',  justifyContent: 'center', alignItems: 'flex-end' }}>
                 <ButtonGroup variant="text" size="small" color="primary" style={{borderRight: 'none'}}>
                   <Button sx={{p: 1,}}>Home</Button>
-                  <Button sx={{p: 1}}>Events</Button>
+                  <AnchorLink href='#events'><Button sx={{p: 1}}>Events</Button></AnchorLink>
                   <Button sx={{p: 1}}>Farms</Button>
                   <Button sx={{p: 1}}>Media</Button>
                   <Button sx={{p: 1}}>Membership</Button>

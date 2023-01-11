@@ -27,7 +27,7 @@ export const Footer = ( props: any ) => {
             display="flex"
             justifyContent="center"
           >
-            <IconButton href="https://www.twitter.com/@BeefInAustralia" target="_blank">
+            <IconButton href="https://twitter.com/BeefInAustralia" target="_blank">
               <TwitterIcon/>
             </IconButton>
             <IconButton>
