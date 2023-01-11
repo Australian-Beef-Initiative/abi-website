@@ -23,7 +23,7 @@ export const Footer = ( props: any ) => {
         </Stack>
         </Grid>
         <Grid xs={4} alignItems="center">
-          <IconButton>
+          <IconButton href="https://www.twitter.com/@BeefInAustralia" target="_blank">
             <TwitterIcon/>
           </IconButton>
           <IconButton>
