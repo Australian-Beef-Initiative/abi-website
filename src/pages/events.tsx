@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import type { HeadFC, PageProps, graphql } from 'gatsby';
+import type { PageProps } from 'gatsby';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Box } from '@mui/material';
-import { Main, Header, Footer, Events, ThemeProvider } from '../components';
+import { Header, Footer, Events, ThemeProvider } from '../components';
 
 const indexContainerStyle = {
   display: 'flex',
@@ -17,10 +17,10 @@ const indexContainerStyle = {
 
 const IndexPage: React.FC<PageProps> = () => (
     <ThemeProvider>
-      <Container id="home" sx={indexContainerStyle} maxWidth="lg">
+      <Container sx={indexContainerStyle} maxWidth="lg">
         <Box>
           <Header />
-          <Main />
+          <Events />
         </Box>
         <Footer />
       </Container>
@@ -28,5 +28,3 @@ const IndexPage: React.FC<PageProps> = () => (
   );
 
 export default IndexPage;
-
-export const Head: HeadFC = () => <title>Australian Beef Initiative</title>;

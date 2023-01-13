@@ -2624,28 +2624,24 @@ type googleSheetSheet1FilterListInput = {
 
 type googleSheetSheet1Internal = {
   readonly contentDigest: Maybe<Scalars['String']>;
-  readonly counter: Maybe<Scalars['Int']>;
   readonly owner: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
 };
 
 type googleSheetSheet1InternalFieldSelector = {
   readonly contentDigest: InputMaybe<FieldSelectorEnum>;
-  readonly counter: InputMaybe<FieldSelectorEnum>;
   readonly owner: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
 };
 
 type googleSheetSheet1InternalFilterInput = {
   readonly contentDigest: InputMaybe<StringQueryOperatorInput>;
-  readonly counter: InputMaybe<IntQueryOperatorInput>;
   readonly owner: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 type googleSheetSheet1InternalSortInput = {
   readonly contentDigest: InputMaybe<SortOrderEnum>;
-  readonly counter: InputMaybe<SortOrderEnum>;
   readonly owner: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
 };
