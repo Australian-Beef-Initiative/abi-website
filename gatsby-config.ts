@@ -1,5 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
+require('dotenv').config();
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Australian Beef Initiative`,
@@ -18,7 +20,18 @@ const config: GatsbyConfig = {
     options: {
       "icon": "src/images/icon.png"
     }
-  }]
+  },
+  {
+    resolve: 'gatsby-source-google-spreadsheets',
+    options: {
+      spreadsheetId: process.env.SPREADSHEET_ID,
+      spreadsheetName: 'gatsby',
+      filterNode: () => true,
+      mapNode: (node: any) => node,
+      apiKey: process.env.API_KEY,
+    }
+  },
+]
 };
 
 export default config;

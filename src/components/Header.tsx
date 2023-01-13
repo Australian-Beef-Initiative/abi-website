@@ -71,15 +71,17 @@ export const Header = ( props: any ) => {
           </Grid>
           <Grid xs={9}>
               <div style={{height: '100%', display: 'flex', flexDirection: 'column',  justifyContent: 'center', alignItems: 'flex-end' }}>
-                <ButtonGroup variant="text" size="small" color="primary" style={{borderRight: 'none'}}>
-                  <Button sx={{p: 1,}}>Home</Button>
-                  <AnchorLink href='#events'><Button sx={{p: 1}}>Events</Button></AnchorLink>
-                  <Button sx={{p: 1}}>Farms</Button>
-                  <Button sx={{p: 1}}>Media</Button>
-                  <Button sx={{p: 1}}>Membership</Button>
-                  <Button sx={{p: 1}}>Get Involved</Button>
-                  <Button sx={{p: 1}}>Contact Us</Button>
-                  <Button sx={{p: 1}}>International</Button>
+                <ButtonGroup variant="text" size="small" color="primary">
+                  { MENU.map(item => {
+                    if(item.useAnchor){
+                      return (
+                        <AnchorLink key={item.href} href={item.href}><Button style={{borderStyle: 'none'}} sx={{p: 1}}>{item.label}</Button></AnchorLink>
+                      )
+                    }
+                    return (
+                      <Button key={item.href} style={{borderStyle: 'none'}}  href={item.href} sx={{p: 1}}>{item.label}</Button>
+                    )
+                  })}
                 </ButtonGroup>
               </div>
             </Grid>
@@ -88,3 +90,46 @@ export const Header = ( props: any ) => {
     </Box>
   )
 }
+
+const MENU = [
+  {
+    label: 'Home',
+    href: '#home',
+    useAnchor: true,
+  },
+  {
+    label: 'Events',
+    href: '#events',
+    useAnchor: true,
+  },
+  {
+    label: 'Farms',
+    href: '#farms',
+    useAnchor: true,
+  },
+  {
+    label: 'Media',
+    href: '#media',
+    useAnchor: true,
+  },
+  {
+    label: 'Membership',
+    href: '#membership',
+    useAnchor: true,
+  },
+  {
+    label: 'Get Involved',
+    href: '#get-involved',
+    useAnchor: true,
+  },
+  {
+    label: 'Contact Us',
+    href: '#contact',
+    useAnchor: true,
+  },
+  {
+    label: 'International',
+    href: '#international',
+    useAnchor: true,
+  }
+]

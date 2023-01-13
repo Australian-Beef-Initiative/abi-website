@@ -1293,6 +1293,8 @@ type PotraceTurnPolicy =
 type Query = {
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
+  readonly allGoogleSheet: googleSheetConnection;
+  readonly allGoogleSheet1Sheet: googleSheet1SheetConnection;
   readonly allImageSharp: ImageSharpConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
@@ -1301,6 +1303,8 @@ type Query = {
   readonly allSitePlugin: SitePluginConnection;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
+  readonly googleSheet: Maybe<googleSheet>;
+  readonly googleSheet1Sheet: Maybe<googleSheet1Sheet>;
   readonly imageSharp: Maybe<ImageSharp>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
@@ -1323,6 +1327,22 @@ type Query_allFileArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<FileSortInput>>>;
+};
+
+
+type Query_allGoogleSheetArgs = {
+  filter: InputMaybe<googleSheetFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<googleSheetSortInput>>>;
+};
+
+
+type Query_allGoogleSheet1SheetArgs = {
+  filter: InputMaybe<googleSheet1SheetFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<googleSheet1SheetSortInput>>>;
 };
 
 
@@ -1451,6 +1471,24 @@ type Query_fileArgs = {
   size: InputMaybe<IntQueryOperatorInput>;
   sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<IntQueryOperatorInput>;
+};
+
+
+type Query_googleSheetArgs = {
+  Sheet1: InputMaybe<googleSheetSheet1FilterListInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+type Query_googleSheet1SheetArgs = {
+  animal: InputMaybe<StringQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
 };
 
 
@@ -2329,6 +2367,302 @@ type TransformOptions = {
 
 type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
+};
+
+type googleSheet = Node & {
+  readonly Sheet1: Maybe<ReadonlyArray<Maybe<googleSheetSheet1>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+};
+
+type googleSheet1Sheet = Node & {
+  readonly animal: Maybe<Scalars['String']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+};
+
+type googleSheet1SheetConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<googleSheet1SheetEdge>;
+  readonly group: ReadonlyArray<googleSheet1SheetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<googleSheet1Sheet>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type googleSheet1SheetConnection_distinctArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+
+type googleSheet1SheetConnection_groupArgs = {
+  field: googleSheet1SheetFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type googleSheet1SheetConnection_maxArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+
+type googleSheet1SheetConnection_minArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+
+type googleSheet1SheetConnection_sumArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+type googleSheet1SheetEdge = {
+  readonly next: Maybe<googleSheet1Sheet>;
+  readonly node: googleSheet1Sheet;
+  readonly previous: Maybe<googleSheet1Sheet>;
+};
+
+type googleSheet1SheetFieldSelector = {
+  readonly animal: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type googleSheet1SheetFilterInput = {
+  readonly animal: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type googleSheet1SheetGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<googleSheet1SheetEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<googleSheet1SheetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<googleSheet1Sheet>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type googleSheet1SheetGroupConnection_distinctArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+
+type googleSheet1SheetGroupConnection_groupArgs = {
+  field: googleSheet1SheetFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type googleSheet1SheetGroupConnection_maxArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+
+type googleSheet1SheetGroupConnection_minArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+
+type googleSheet1SheetGroupConnection_sumArgs = {
+  field: googleSheet1SheetFieldSelector;
+};
+
+type googleSheet1SheetSortInput = {
+  readonly animal: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+};
+
+type googleSheetConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<googleSheetEdge>;
+  readonly group: ReadonlyArray<googleSheetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<googleSheet>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type googleSheetConnection_distinctArgs = {
+  field: googleSheetFieldSelector;
+};
+
+
+type googleSheetConnection_groupArgs = {
+  field: googleSheetFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type googleSheetConnection_maxArgs = {
+  field: googleSheetFieldSelector;
+};
+
+
+type googleSheetConnection_minArgs = {
+  field: googleSheetFieldSelector;
+};
+
+
+type googleSheetConnection_sumArgs = {
+  field: googleSheetFieldSelector;
+};
+
+type googleSheetEdge = {
+  readonly next: Maybe<googleSheet>;
+  readonly node: googleSheet;
+  readonly previous: Maybe<googleSheet>;
+};
+
+type googleSheetFieldSelector = {
+  readonly Sheet1: InputMaybe<googleSheetSheet1FieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type googleSheetFilterInput = {
+  readonly Sheet1: InputMaybe<googleSheetSheet1FilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type googleSheetGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<googleSheetEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<googleSheetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<googleSheet>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type googleSheetGroupConnection_distinctArgs = {
+  field: googleSheetFieldSelector;
+};
+
+
+type googleSheetGroupConnection_groupArgs = {
+  field: googleSheetFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type googleSheetGroupConnection_maxArgs = {
+  field: googleSheetFieldSelector;
+};
+
+
+type googleSheetGroupConnection_minArgs = {
+  field: googleSheetFieldSelector;
+};
+
+
+type googleSheetGroupConnection_sumArgs = {
+  field: googleSheetFieldSelector;
+};
+
+type googleSheetSheet1 = {
+  readonly animal: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly internal: Maybe<googleSheetSheet1Internal>;
+  readonly parent: Maybe<Scalars['String']>;
+};
+
+type googleSheetSheet1FieldSelector = {
+  readonly animal: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<googleSheetSheet1InternalFieldSelector>;
+  readonly parent: InputMaybe<FieldSelectorEnum>;
+};
+
+type googleSheetSheet1FilterInput = {
+  readonly animal: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<googleSheetSheet1InternalFilterInput>;
+  readonly parent: InputMaybe<StringQueryOperatorInput>;
+};
+
+type googleSheetSheet1FilterListInput = {
+  readonly elemMatch: InputMaybe<googleSheetSheet1FilterInput>;
+};
+
+type googleSheetSheet1Internal = {
+  readonly contentDigest: Maybe<Scalars['String']>;
+  readonly counter: Maybe<Scalars['Int']>;
+  readonly owner: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type googleSheetSheet1InternalFieldSelector = {
+  readonly contentDigest: InputMaybe<FieldSelectorEnum>;
+  readonly counter: InputMaybe<FieldSelectorEnum>;
+  readonly owner: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type googleSheetSheet1InternalFilterInput = {
+  readonly contentDigest: InputMaybe<StringQueryOperatorInput>;
+  readonly counter: InputMaybe<IntQueryOperatorInput>;
+  readonly owner: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type googleSheetSheet1InternalSortInput = {
+  readonly contentDigest: InputMaybe<SortOrderEnum>;
+  readonly counter: InputMaybe<SortOrderEnum>;
+  readonly owner: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type googleSheetSheet1SortInput = {
+  readonly animal: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<googleSheetSheet1InternalSortInput>;
+  readonly parent: InputMaybe<SortOrderEnum>;
+};
+
+type googleSheetSortInput = {
+  readonly Sheet1: InputMaybe<googleSheetSheet1SortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
