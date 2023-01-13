@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Main, Header, Footer, Home } from '../components'
 import Container from '@mui/material/Container'
-import type { HeadFC, PageProps } from 'gatsby'
+import type { HeadFC, PageProps, graphql } from 'gatsby'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -76,7 +76,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
     <ThemeProvider theme={theme}>
       <Container 
-        sx={{display: 'flex', minHeight: '100vh', flexDirection: 'column', justifyContent: 'space-between'}} 
+        id="home" sx={{display: 'flex', minHeight: '100vh', flexDirection: 'column', justifyContent: 'space-between'}} 
         maxWidth="lg"
       >
         <Box>
