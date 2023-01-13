@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import { Box, Container } from '@mui/material';
 import { HomeBanner } from './HomeBanner';
 import { HomeContentContainer } from './HomeContentContainer';
@@ -21,6 +20,7 @@ export const Main = (props: any) => (
       TextComponent={ObjectivesText}
       variant="primary"
       buttonLabel={undefined}
+      href="placeholder"
     />
     <HomeContentContainer
       id="mission-statement"
@@ -28,6 +28,7 @@ export const Main = (props: any) => (
       TextComponent={ObjectivesText}
       variant="primary"
       buttonLabel={undefined}
+      href="placeholder"
     />
     <Container maxWidth="sm" sx={{ marginBottom: 10 }}>
       <div className="ratio ratio-16x9">
