@@ -1,6 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
+import * as dotEnv from 'dotenv'
 
-require('dotenv').config();
+dotEnv.config()
 
 const config: GatsbyConfig = {
   siteMetadata: {
