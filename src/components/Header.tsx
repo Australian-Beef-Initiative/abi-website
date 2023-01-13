@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import MenuIcon from '@mui/icons-material/Menu';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Link } from 'gatsby'
 
 export const Header = (props: any) => {
   const isTabletOrMobile = useMediaQuery('(max-width:1000px)');
@@ -27,37 +27,37 @@ export const Header = (props: any) => {
   const MENU = [
     {
       label: 'Home',
-      href: '#home',
+      href: '/#home',
       useAnchor: true,
     },
     {
       label: 'Events',
-      href: '#events',
+      href: '/#events',
       useAnchor: true,
     },
     {
       label: 'Farms',
-      href: '#farms',
+      href: '/#farms',
       useAnchor: true,
     },
     {
       label: 'Media',
-      href: '#media',
+      href: '/#media',
       useAnchor: true,
     },
     {
       label: 'Membership',
-      href: '#membership',
+      href: '/#membership',
       useAnchor: true,
     },
     {
       label: 'Get Involved',
-      href: '#get-involved',
+      href: '/#get-involved',
       useAnchor: true,
     },
     {
       label: 'Contact Us',
-      href: '#contact',
+      href: '/#contact',
       useAnchor: true,
     },
     {
@@ -124,11 +124,11 @@ export const Header = (props: any) => {
                 {MENU.map((item) => {
                   if (item.useAnchor) {
                     return (
-                      <AnchorLink key={item.href} href={item.href}>
+                      <Link key={item.href} to={item.href}>
                         <Button style={{ borderStyle: 'none' }} sx={{ p: 1 }}>
                           {item.label}
                         </Button>
-                      </AnchorLink>
+                      </Link>
                     );
                   }
                   return (

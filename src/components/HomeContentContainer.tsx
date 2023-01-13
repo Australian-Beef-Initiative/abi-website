@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Button, Chip } from '@mui/material';
+import { Link } from 'gatsby'
 
 export const HomeContentContainer = (props: {
   heading: string;
@@ -21,15 +22,17 @@ export const HomeContentContainer = (props: {
       <Container maxWidth="sm">
         <TextComponent />
         {buttonLabel && (
-          <Button
-            href={href}
-            size="large"
-            variant="contained"
-            color={`${variant === 'primary' ? 'secondary' : 'primary'}`}
-            sx={{ marginTop: 3 }}
-          >
-            {buttonLabel}
-          </Button>
+          <Link to="/events">
+            <Button
+              href={href}
+              size="large"
+              variant="contained"
+              color={`${variant === 'primary' ? 'secondary' : 'primary'}`}
+              sx={{ marginTop: 3 }}
+            >
+              {buttonLabel}
+            </Button>
+          </Link>
         )}
       </Container>
     </Container>
